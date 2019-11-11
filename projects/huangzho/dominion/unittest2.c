@@ -85,7 +85,7 @@ int main()
     }
 
 
-    // Test 4: verify for choice 2 that the player draws only 4 cards
+    // Test 4: Check if player draws only 4 cards
     initializeGame(num_player, k, seed, &G);
     G.hand[1][0] = mine;
     G.hand[1][1] = mine;
