@@ -75,7 +75,7 @@ int main()
     G.hand[player][3] = minion;
     Effect_minion(0, 1, 0, &G, 3, player); // play the card
 
-    if ((result = Check_As(G.hand[player][4] == -1)))
+    if ((result = Check_As(G.hand[player][3] == -1)))
     {
         printf("\tTest 3 Success\n"); 
     }
