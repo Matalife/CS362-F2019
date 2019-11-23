@@ -1,2 +1,1 @@
-run make all #To compile the dominion code
-run ./playdom 30 # to run playdom code
+use "make result" to get the randomtestresults 
