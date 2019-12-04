@@ -401,7 +401,7 @@ int isGameOver(struct gameState *state) {
 
     //if three supply pile are at 0, the game ends
     j = 0;
-    for (i = 0; i < 25; i++)
+    for (i = 0; i <= 25; i++)
     {
         if (state->supplyCount[i] == 0)
         {
@@ -1011,8 +1011,16 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
             state->playedCards[state->playedCardCount] = tributeRevealedCards[1];
             state->playedCardCount++;
             tributeRevealedCards[1] = -1;
-        }
-
+        else if (tributeRevealedCards[i] == -1){
+		if (DEBUG) {
+			printf("cards are the same");
+		}
+	}
+	else {
+		state -> numActions = state -> numActions +2;
+	}
+	}
+	
         for (i = 0; i < 2; i ++) {
             if (tributeRevealedCards[i] == copper || tributeRevealedCards[i] == silver || tributeRevealedCards[i] == gold) { //Treasure cards
                 **bonus = 2;
@@ -1026,7 +1034,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
                 state->numActions = state->numActions + 2;
             }
         }
-
+	
         return 0;
 
     case ambassador:
@@ -1044,7 +1052,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
         for (i = 0; i < state->handCount[currentPlayer]; i++)
         {
-            if (i != handPos && i == state->hand[currentPlayer][choice1] && i != choice1)
+            if (i != handPos && state->hand[currentPlayer][i] == state->hand[currentPlayer][choice1] && i != choice1)
             {
                 j++;
             }
